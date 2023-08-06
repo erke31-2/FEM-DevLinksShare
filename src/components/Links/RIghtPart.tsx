@@ -2,7 +2,7 @@ import Heading from "../Heading";
 import LinkInput from "../LinkInput";
 const RightPart = () => {
   return (
-    <div className="w-full shadow-sm  rounded-lg py-4 mb-6 bg-white wide:w-[60%]">
+    <div className="w-full shadow-md  rounded-lg py-4 mb-6 bg-white wide:w-[58%]">
       <Heading title="Customize your links">
         Add/edit/remove links below and then share all your profiles with the
         world!

@@ -3,7 +3,7 @@ import PersonalInfoForm from "./PersonalInfoForm";
 
 const RightPart = () => {
   return (
-    <div className="w-full shadow-sm  rounded-lg py-4 mb-6 bg-white wide:w-[60%]">
+    <div className="w-full shadow-md  rounded-lg py-4 mb-6 bg-white wide:w-[58%]">
       <Heading title="Profile Details">
         Add you details to create a personal touch to your profile.
       </Heading>

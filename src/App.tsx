@@ -3,11 +3,16 @@ import Home from "./pages/Home";
 import EditLayout from "./layouts/EditLayout";
 import EditLinks from "./pages/EditLinks";
 import EditPersonalInfo from "./pages/EditPersonalInfo";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />
   },
   {
     path: "/edit",

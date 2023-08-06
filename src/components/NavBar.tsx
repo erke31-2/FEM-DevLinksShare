@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaLink, FaUserCircle, FaRegEye } from "react-icons/fa";
+import useAuth from "../hooks/useAuth";
 const NavBar = () => {
+  const {logOut} = useAuth();
   return (
     <header className="w-[95%] bg-white mx-auto shadow-sm rounded-lg flex justify-between px-5 py-2 items-center">
       <h1 className="text-lg font-bold">DevLinks</h1>
@@ -42,6 +44,9 @@ const NavBar = () => {
       >
         <FaRegEye />
       </Link>
+      <button className="bg-red-500 text-cardBg px-4 py-2 font-bold rounded-md" onClick={logOut}>
+        LogOut
+      </button>
     </header>
   );
 };
