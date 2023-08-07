@@ -13,6 +13,9 @@ export default {
       },
       screens: {
         'wide': { 'raw': '(min-width: 1100px)' },
+      },
+      dropShadow: {
+        "inputShadow" : '0px 0px 5px #633bfe'
       }
     },
   },

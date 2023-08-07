@@ -5,20 +5,21 @@ const logInWithProvider = async (provider: Provider) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: "http://localhost:3000/edit",
+      redirectTo: "http://localhost:3000",
     },
   });
   if (error) {
-    return error;
+    throw error;
   }
 };
 
 const logOut = async () => {
   const { error } = await supabase.auth.signOut();
   if (error) {
-    return error;
+    throw error;
   }
 };
+
 
 const useAuth = () => {
   return {

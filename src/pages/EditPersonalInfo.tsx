@@ -1,11 +1,23 @@
-import LeftPart from "../components/PersonalInfo/LeftPart";
-import RightPart from "../components/PersonalInfo/RightPart";
+import { useOutletContext } from "react-router-dom";
+import Heading from "../components/Heading";
+import PersonalInfoForm from "../components/PersonalInfoForm";
+import { User } from "@supabase/supabase-js";
+import usePersonalInfoQuery from "../hooks/queries/usePersonalInfoQuery";
 const EditPersonalInfo = () => {
+  const user = useOutletContext<User>();
+  const { personalInfo, status } = usePersonalInfoQuery(user.id);
+  if(status === "loading"){
+    return <span>Loading...</span>
+  }
+
+
   return (
-    <main className="w-[95%] mx-auto wide:flex wide:justify-between wide:gap-x-4">
-      <LeftPart />
-      <RightPart />
-    </main>
+    <>
+      <Heading title="Profile Details">
+        Add you details to create a personal touch to your profile.
+      </Heading>
+      {personalInfo && <PersonalInfoForm currentPersonalInfo={personalInfo} />}
+    </>
   );
 };
 export default EditPersonalInfo;
