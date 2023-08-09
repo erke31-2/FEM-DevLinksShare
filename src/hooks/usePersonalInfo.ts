@@ -20,10 +20,23 @@ const upsertPersonalInfo = async (formData: UpsetProfileData) => {
   }
 };
 
+const uploadImage = async ( e: React.ChangeEvent<HTMLInputElement>, userId: string ) => {
+  const date = new Date().toISOString();
+  const file = e.target.files?.[0];
+  if (file) {
+    const { data, error } = await supabase.storage
+      .from("avatars")
+      .upload(`${userId}/${date}`, file);
+    if (error) throw new Error(error.message);
+    return data.path; 
+  }
+};
+
 const usePersonalInfo = () => {
   return {
     getPersonalInfo,
     upsertPersonalInfo,
+    uploadImage,
   };
 };
 

@@ -5,36 +5,28 @@ import { UpsetProfileData } from "../types/types";
 import usePersonalInfoMutate from "../hooks/queries/usePersonalInfoMutate";
 import ErrorMsg from "./ErrorMsg";
 import ImageForm from "./ImageForm";
-import { useState } from "react";
+
 interface PersonalInfoFormProps {
   currentPersonalInfo: UpsetProfileData;
 }
 
 const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo }) => {
-  const [selectedImgUrl, setSelectedImgUrl] = useState<string | undefined>(currentPersonalInfo.avatar_url || undefined);
   const { handleSubmit, register, formState: { errors } } = useForm<UpsetProfileData>({
     resolver: zodResolver(UpsertProfileFormData),
     defaultValues: currentPersonalInfo,
   });
-
-
   const { mutation } = usePersonalInfoMutate();
 
   const onSubmit: SubmitHandler<UpsetProfileData> = (formData) => {
     formData.updated_at = new Date().toUTCString();
-    formData.avatar_url = selectedImgUrl
     mutation.mutate(formData);
   };
 
-  
   return (
-    <div className="h-[630px] flex flex-col justify-between gap-y-3 pt-6">
-      <ImageForm userId={currentPersonalInfo.id} 
-          selectedImgUrl={selectedImgUrl} 
-            setSelectedImgUrl={setSelectedImgUrl}
-          />
-      <form className="h-[60%] flex flex-col justify-between" onSubmit={handleSubmit(onSubmit)}>
-        <div className="bg-cardBg rounded-xl px-5 mx-5 py-3 flex flex-col gap-y-5 md:gap-y-8 md:py-6 text-secondaryColor shadow-sm">
+    <div className="py-6 h-[580px] flex flex-col justify-evenly gap-y-3 mt-3">
+      <ImageForm />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="bg-cardBg rounded-xl p-4 flex flex-col gap-y-5 md:gap-y-8 md:py-6 text-secondaryColor w-full shadow-sm">
           <div className="w-full flex flex-col md:flex-row md:items-center md:gap-x-3 md:justify-between relative">
             <label htmlFor="firstName">First name*</label>
             <div className="md:w-[70%] relative">
@@ -71,7 +63,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
               <input
                 type="email"
                 id="email"
-                className={`${ errors.email_address ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
+                className={`${errors.email_address ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
                 placeholder="eg. yangwenli@gmail.com"
                 {...register("email_address")}
               />
@@ -81,9 +73,10 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
             </div>
           </div>
         </div>
-        <div className="w-full border-t pt-4 border-t-gray-300 px-8 flex md:justify-end justify-center">
+
+        <div className="w-full border-t border-t-gray-300 px-8 flex md:justify-end justify-center">
           <button
-            className="w-full md:w-fit py-2 px-6 bg-btnBg rounded-lg text-white font-medium````"
+            className="w-full md:w-fit py-2 px-6 bg-btnBg rounded-lg text-white font-medium"
             type="submit">
             Save
           </button>

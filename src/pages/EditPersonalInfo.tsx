@@ -10,7 +10,6 @@ const EditPersonalInfo = () => {
     return <span>Loading...</span>
   }
 
-
   return (
     <>
       <Heading title="Profile Details">

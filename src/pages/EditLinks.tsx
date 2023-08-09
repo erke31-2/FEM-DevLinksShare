@@ -18,7 +18,10 @@ const EditLinks = () => {
         </div>
       </div>
       <div className="w-full border-t border-t-gray-300 px-8 pt-3 flex md:justify-end justify-center">
-        <button className="w-full md:w-fit py-2 px-6 bg-btnBg rounded-lg text-white font-medium">
+        <button
+          className="w-full md:w-fit py-2 px-6 bg-btnBg rounded-lg text-white font-medium"
+          type="submit"
+        >
           Save
         </button>
       </div>

@@ -6,14 +6,14 @@ import { useOutletContext } from "react-router-dom";
 const InfoDisplay = () => {
   const user = useOutletContext<User>();
   const { personalInfo } = usePersonalInfoQuery(user.id);
-  
+  const imgSrc = personalInfo?.avatar_url ? personalInfo.avatar_url : "/images/profile.png"
   return (
     <>
       <div className="w-full flex flex-col items-center gap-y-2">
         <div className="w-20 h-20 rounded-full border-[3px] border-btnBg">
           <img
-            src="/images/profile.png"
-            alt="profile"
+            src={imgSrc}
+            alt={personalInfo?.first_name}
             className="w-full h-full object-cover object-center rounded-full"
           />
         </div>
