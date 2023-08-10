@@ -1,7 +1,7 @@
 import { useUser } from "@supabase/auth-helpers-react";
 import { FaGithub } from "react-icons/fa";
 import { Navigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../hooks/functions/useAuth";
 
 
 const Login = () => {

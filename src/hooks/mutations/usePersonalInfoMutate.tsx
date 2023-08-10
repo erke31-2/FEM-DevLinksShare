@@ -1,18 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import usePersonalInfo from "../usePersonalInfo"
+import usePersonalInfo from "../functions/usePersonalInfo"
 import { UpsetProfileData } from "../../types/types"
 
-
-
-const usePersonalInfoMutate = () => {
+const usePersonalInfoMutate = (userId: string) => {
     const queryClient = useQueryClient();
     const {upsertPersonalInfo} = usePersonalInfo()
     const mutation = useMutation<void, Error, UpsetProfileData>({
-        mutationKey: ["upsertPersonalInfo"],
+        mutationKey: ["upsertingPersonalInfo"],
         mutationFn: (formData) => upsertPersonalInfo(formData),
         onSuccess: () => {
-            queryClient.invalidateQueries({queryKey: ["getPersonalInfoById"]});
-          
+            queryClient.invalidateQueries({queryKey: ["getPersonalInfoById", userId]});  
         },
         onError: (error) => {
             console.log(error.message);        

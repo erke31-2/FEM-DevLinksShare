@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import usePersonalInfo from "../usePersonalInfo"
+import usePersonalInfo from "../functions/usePersonalInfo"
 
 interface uploadImageParams{
     e:  React.ChangeEvent<HTMLInputElement>,

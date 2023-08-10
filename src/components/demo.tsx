@@ -2,9 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { UpsertProfileFormData } from "../types/schema";
 import { UpsetProfileData } from "../types/types";
-import usePersonalInfoMutate from "../hooks/queries/usePersonalInfoMutate";
+import usePersonalInfoMutate from "../hooks/mutations/usePersonalInfoMutate";
 import ErrorMsg from "./ErrorMsg";
-import ImageForm from "./ImageForm";
+import ImageForm from "./personalInfo/ImageForm";
 
 interface PersonalInfoFormProps {
   currentPersonalInfo: UpsetProfileData;

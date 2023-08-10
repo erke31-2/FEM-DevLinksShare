@@ -1,6 +1,6 @@
 import { FaImage } from "react-icons/fa";
-import useUploadImageMutate from "../hooks/queries/useUploadImageMutate";
-import { getImageUrl } from "../supabase/supabase";
+import useUploadImageMutate from "../../hooks/queries/useUploadImageMutate";
+import { getImageUrl } from "../../supabase/supabase";
 import { useRef } from "react";
 
 interface ImageFormProps {
@@ -18,8 +18,6 @@ const ImageForm: React.FC<ImageFormProps> = ({ userId, setSelectedImgUrl, select
       inputRef.current?.click();
     }
   }
-
-
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const path = await mutateAsync({ e, userId });

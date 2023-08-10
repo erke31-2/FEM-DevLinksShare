@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import usePersonalInfo from "../usePersonalInfo";
+import usePersonalInfo from "../functions/usePersonalInfo";
 
 
 const usePersonalInfoQuery = (userId: string) => {

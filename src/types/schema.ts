@@ -1,5 +1,5 @@
 import { ZodType, z } from "zod";
-import { UpsetProfileData } from "./types";
+import { UpsetProfileData, SocialLinksData } from "./types";
 
 export const UpsertProfileFormData: ZodType<UpsetProfileData> = z.object({
     id: z.string().nonempty(),
@@ -8,4 +8,14 @@ export const UpsertProfileFormData: ZodType<UpsetProfileData> = z.object({
     email_address: z.string().nonempty("Please Enter Your Email Address!").email("Please Enter Valid Email Address"),
     avatar_url: z.string().optional(),
     updated_at: z.string().optional(),
+})
+
+
+export const UpsertSocialLinkFormData: ZodType<SocialLinksData> = z.object({
+    id: z.string().nonempty(),
+    name: z.string().nonempty("Select Social Platform"),
+    url: z.string().nonempty("Enter Your Social Link Url").url(),
+    user_id: z.string().nonempty(),
+    description: z.string(),
+    created_at: z.string()
 })

@@ -1,5 +1,5 @@
 import { Provider } from "@supabase/supabase-js";
-import supabase from "../supabase/supabase";
+import supabase from "../../supabase/supabase";
 
 const logInWithProvider = async (provider: Provider) => {
   const { error } = await supabase.auth.signInWithOAuth({
@@ -9,14 +9,14 @@ const logInWithProvider = async (provider: Provider) => {
     },
   });
   if (error) {
-    throw error;
+    throw new Error(error.message);
   }
 };
 
 const logOut = async () => {
   const { error } = await supabase.auth.signOut();
   if (error) {
-    throw error;
+    throw new Error(error.message);
   }
 };
 

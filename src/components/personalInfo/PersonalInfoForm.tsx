@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { UpsertProfileFormData } from "../types/schema";
-import { UpsetProfileData } from "../types/types";
-import usePersonalInfoMutate from "../hooks/queries/usePersonalInfoMutate";
-import ErrorMsg from "./ErrorMsg";
+import { UpsertProfileFormData } from "../../types/schema";
+import { UpsetProfileData } from "../../types/types";
+import usePersonalInfoMutate from "../../hooks/mutations/usePersonalInfoMutate";
+import ErrorMsg from "../ErrorMsg";
 import ImageForm from "./ImageForm";
 import { useState } from "react";
 interface PersonalInfoFormProps {
@@ -18,7 +18,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
   });
 
 
-  const { mutation } = usePersonalInfoMutate();
+  const { mutation } = usePersonalInfoMutate(currentPersonalInfo.id);
 
   const onSubmit: SubmitHandler<UpsetProfileData> = (formData) => {
     formData.updated_at = new Date().toUTCString();

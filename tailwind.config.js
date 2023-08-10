@@ -9,7 +9,7 @@ export default {
         btnBg: "#633bfe",
         cardBg: "#fafafa",
         inputBorder: "#e2e2e2",
-        navBg: "#efecff"
+        navBg: "#efecff",
       },
       screens: {
         'wide': { 'raw': '(min-width: 1100px)' },

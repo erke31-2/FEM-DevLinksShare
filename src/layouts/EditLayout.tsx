@@ -13,7 +13,7 @@ const EditLayout = () => {
         </div>
 
         <div className="w-full shadow-md  rounded-lg py-4 mb-6 bg-white wide:w-[58%]">
-          <Outlet context={useOutletContext<User>()}/>
+          <Outlet context={useOutletContext<User>()} />
         </div>
       </main>
     </div>

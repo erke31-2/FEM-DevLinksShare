@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import Heading from "../components/Heading";
-import PersonalInfoForm from "../components/PersonalInfoForm";
+import PersonalInfoForm from "../components/personalInfo/PersonalInfoForm";
 import { User } from "@supabase/supabase-js";
 import usePersonalInfoQuery from "../hooks/queries/usePersonalInfoQuery";
 const EditPersonalInfo = () => {
