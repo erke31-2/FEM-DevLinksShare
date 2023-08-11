@@ -1,6 +1,8 @@
 import { Provider } from "@supabase/supabase-js";
 import supabase from "../../supabase/supabase";
 
+
+
 const logInWithProvider = async (provider: Provider) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider,

@@ -6,6 +6,7 @@ import usePersonalInfoMutate from "../../hooks/mutations/usePersonalInfoMutate";
 import ErrorMsg from "../ErrorMsg";
 import ImageForm from "./ImageForm";
 import { useState } from "react";
+
 interface PersonalInfoFormProps {
   currentPersonalInfo: UpsetProfileData;
 }
@@ -17,7 +18,6 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
     defaultValues: currentPersonalInfo,
   });
 
-
   const { mutation } = usePersonalInfoMutate(currentPersonalInfo.id);
 
   const onSubmit: SubmitHandler<UpsetProfileData> = (formData) => {
@@ -25,14 +25,18 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
     formData.avatar_url = selectedImgUrl
     mutation.mutate(formData);
   };
-
+  
   
   return (
-    <div className="h-[630px] flex flex-col justify-between gap-y-3 pt-6">
+    <>
+    {mutation.isLoading && <div className="fixed top-0 left-0 w-full h-full bg-gray-600 opacity-80 flex justify-center items-center z-20">
+        <div className="w-10 h-10 rounded-full border-2 border-t-cardBg animate-spin"/>
+      </div>}
+    <section className="h-[650px] flex flex-col md:justify-around gap-y-4 pt-4">
       <ImageForm userId={currentPersonalInfo.id} 
           selectedImgUrl={selectedImgUrl} 
             setSelectedImgUrl={setSelectedImgUrl}
-          />
+          />  
       <form className="h-[60%] flex flex-col justify-between" onSubmit={handleSubmit(onSubmit)}>
         <div className="bg-cardBg rounded-xl px-5 mx-5 py-3 flex flex-col gap-y-5 md:gap-y-8 md:py-6 text-secondaryColor shadow-sm">
           <div className="w-full flex flex-col md:flex-row md:items-center md:gap-x-3 md:justify-between relative">
@@ -81,15 +85,16 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
             </div>
           </div>
         </div>
-        <div className="w-full border-t pt-4 border-t-gray-300 px-8 flex md:justify-end justify-center">
+        <div className="w-full border-t pt-4 md:pt-8 border-t-gray-300 px-8 flex md:justify-end justify-center">
           <button
-            className="w-full md:w-fit py-2 px-6 bg-btnBg rounded-lg text-white font-medium````"
+            className="w-full md:w-fit py-2 px-8 bg-btnBg rounded-lg text-white font-medium````"
             type="submit">
             Save
           </button>
         </div>
       </form>
-    </div>
+    </section>
+    </>
   );
 };
 export default PersonalInfoForm;

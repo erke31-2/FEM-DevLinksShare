@@ -1,21 +1,21 @@
-import { useOutletContext } from "react-router-dom";
 import Heading from "../components/Heading";
 import PersonalInfoForm from "../components/personalInfo/PersonalInfoForm";
-import { User } from "@supabase/supabase-js";
+import SkeletonInfoForm from "../components/personalInfo/SkeletonInfoForm";
 import usePersonalInfoQuery from "../hooks/queries/usePersonalInfoQuery";
+import { GetCurrentUser } from "../layouts/AuthLayout";
 const EditPersonalInfo = () => {
-  const user = useOutletContext<User>();
+  const user = GetCurrentUser(); 
   const { personalInfo, status } = usePersonalInfoQuery(user.id);
-  if(status === "loading"){
-    return <span>Loading...</span>
-  }
+ 
 
   return (
     <>
       <Heading title="Profile Details">
         Add you details to create a personal touch to your profile.
       </Heading>
-      {personalInfo && <PersonalInfoForm currentPersonalInfo={personalInfo} />}
+      {
+        status === "loading" ? <SkeletonInfoForm /> : status === "success" && personalInfo ? <PersonalInfoForm currentPersonalInfo={personalInfo} /> : <span>Error</span>
+      }
     </>
   );
 };

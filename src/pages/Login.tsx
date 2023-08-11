@@ -11,6 +11,7 @@ const Login = () => {
   if (user) {
     return <Navigate to="/edit" />;
   }
+  
   return (
     <div className="bg-cardBg w-full h-screen flex justify-center items-center">
       <div className="w-[300px] h-[400px] bg-navBg rounded-lg px-6 flex justify-center items-center">

@@ -1,11 +1,13 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home";
-import EditLayout from "./layouts/EditLayout";
-import EditLinks from "./pages/EditLinks";
-import EditPersonalInfo from "./pages/EditPersonalInfo";
-import Login from "./pages/Login";
-import AuthLayout from "./layouts/AuthLayout";
 
+import AuthLayout from "./layouts/AuthLayout";
+import EditLayout from "./layouts/EditLayout";
+
+import Home from "./pages/Home";
+import EditPersonalInfo from "./pages/EditPersonalInfo";
+import EditLinks from "./pages/EditLinks";
+
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -43,10 +45,6 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return (
-    
-      <RouterProvider router={router} />
-    
-  );
+  return <RouterProvider router={router} />;
 };
 export default App;
