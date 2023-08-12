@@ -19,12 +19,12 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({ socialLinks }) => {
     user_id: user.id,
     created_at: "",
   };
-  const [defaultFormData, setDefaultFormData] = useState<SocialLinksData[]>([]);
+  const [defaultFormData, setDefaultFormData] = useState<SocialLinksData[]>(socialLinks.length > 0 ? [] : [newForm]);
 
   const addNewForm = () => {
     setDefaultFormData([newForm, ...defaultFormData]);
   };
-
+  
   const removeAddedForm = (id: string) => {
     const newFormData = defaultFormData.filter(
       (formData) => formData.id !== id

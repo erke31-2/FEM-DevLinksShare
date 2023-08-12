@@ -9,7 +9,7 @@ interface LinkTabProps {
 const LinkTab: React.FC<LinkTabProps> = ({ link }) => {
   const matchedLink = linkTabs.find((linkTab) => linkTab.name === link.name);
   if (!matchedLink) {
-    return null;
+    return;
   }
   const { icon: Icon, colorClass } = matchedLink;
 

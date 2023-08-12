@@ -17,7 +17,7 @@ const ImageForm: React.FC<ImageFormProps> = ({ userId, setSelectedImgUrl, select
   const [uploadImage, setUploadImage] = useState<string | undefined>()
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { mutateAsync, isLoading } = useUploadImageMutate();
-  const {handleSubmit: handleImageSubmit, formState:{errors}, setValue} = useForm<ImageSchemaType>({resolver: zodResolver(ImageSchema)})
+  const {handleSubmit: handleImageSubmit, formState:{errors}, setValue, clearErrors} = useForm<ImageSchemaType>({resolver: zodResolver(ImageSchema)})
   const handleImageInput = () => {
     if (inputRef) {
       inputRef.current?.click();
@@ -35,6 +35,7 @@ const ImageForm: React.FC<ImageFormProps> = ({ userId, setSelectedImgUrl, select
     if(uploadImage){
       URL.revokeObjectURL(uploadImage);
       setUploadImage(undefined)
+      clearErrors("image");
     }
   }
 

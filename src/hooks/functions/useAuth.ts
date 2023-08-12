@@ -2,12 +2,11 @@ import { Provider } from "@supabase/supabase-js";
 import supabase from "../../supabase/supabase";
 
 
-
 const logInWithProvider = async (provider: Provider) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: "http://localhost:3000",
+      redirectTo: "http://localhost:3000/edit",
     },
   });
   if (error) {
@@ -24,6 +23,7 @@ const logOut = async () => {
 
 
 const useAuth = () => {
+  
   return {
     logInWithProvider,
     logOut,

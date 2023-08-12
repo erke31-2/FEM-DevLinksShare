@@ -8,6 +8,7 @@ import { UpsertSocialLinkFormData } from "../../types/schema";
 import { useOutletContext } from "react-router-dom";
 import { User } from "@supabase/supabase-js";
 import useSocialLinkMutate from "../../hooks/mutations/useSocialLinkMutate";
+import LoadingLayout from "../LoadingLayout";
 
 interface LinkInputProps {
   defaultFormData: SocialLinksData;
@@ -43,8 +44,10 @@ const LinkInput: React.FC<LinkInputProps> = ({ defaultFormData, removeAddedForm,
     formData.created_at = new Date().toISOString();
     mutation.mutate(formData);
   };
-
+  
   return (
+    <>
+    {mutation.isLoading && <LoadingLayout />}
     <div className="w-full bg-cardBg px-4 py-3 rounded-xl text-secondaryColor flex flex-col gap-y-3">
       <div className="flex justify-between items-center px-1">
         <h3 className="font-semibold">= Link</h3>
@@ -129,6 +132,7 @@ const LinkInput: React.FC<LinkInputProps> = ({ defaultFormData, removeAddedForm,
         </button>
       </div>
     </div>
+    </>
   );
 };
 export default LinkInput;

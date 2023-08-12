@@ -3,6 +3,7 @@ import { linkTabs } from "../../constants/linkTabs";
 import useSocialLinkDeleteMutate from "../../hooks/mutations/useSocialLinkDeleteMutate";
 import { SocialLinksData } from "../../types/types";
 import { FaTrashAlt, FaLink } from "react-icons/fa";
+import LoadingLayout from "../LoadingLayout";
 interface LinkDisplayProps {
   socialLink: SocialLinksData;
   serial: number;
@@ -25,6 +26,8 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
   };
 
   return (
+    <>
+    {mutation.isLoading && <LoadingLayout />}
     <article className="w-full bg-cardBg px-4 py-3 rounded-xl text-secondaryColor flex flex-col gap-y-3">
       <div className="flex justify-between items-center px-1">
         <h3 className="font-semibold">= Link #{serial}</h3>
@@ -65,7 +68,7 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
       {socialLink.description && (
         <div>
           <label htmlFor="description" className="text-sm font-medium">
-            Description (optional)
+            Description
           </label>
           <div className="flex items-center border rounded-md px-3 py-[11px] border-inputBorder overflow-auto">
             <p
@@ -78,16 +81,17 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
         </div>
       )}
       {showModal && (
-        <div className="flex justify-between text-cardBg mt-2 font-medium">
-          <button className="bg-blue-600 w-1/2 py-2 rounded-l-md hover:bg-opacity-80" onClick={() => setShowModal(false)}>
+        <div className="flex justify-between text-cardBg mt-2 font-medium gap-x-1">
+          <button className="border-2 border-blue-600 text-blue-600 w-1/2 py-2 rounded-md hover:text-btnBg hover:border-btnBg" onClick={() => setShowModal(false)}>
             Cancel
           </button>
-          <button className="bg-red-600 w-1/2 py-2 rounded-r-md hover:bg-opacity-80" onClick={() => handleDelete(socialLink.id)}>
+          <button className="bg-red-600 w-1/2 py-2 rounded-md hover:bg-opacity-80" onClick={() => handleDelete(socialLink.id)}>
             Delete
           </button>
         </div>
       )}
     </article>
+    </>
   );
 };
 export default LinkDisplay;

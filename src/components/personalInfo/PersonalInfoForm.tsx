@@ -6,6 +6,7 @@ import usePersonalInfoMutate from "../../hooks/mutations/usePersonalInfoMutate";
 import ErrorMsg from "../ErrorMsg";
 import ImageForm from "./ImageForm";
 import { useState } from "react";
+import LoadingLayout from "../LoadingLayout";
 
 interface PersonalInfoFormProps {
   currentPersonalInfo: UpsetProfileData;
@@ -29,13 +30,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
   
   return (
     <>
-    {mutation.isLoading && <div className="fixed top-0 left-0 w-full h-full bg-gray-600 opacity-80 flex justify-center items-center z-20">
-        <div className="w-10 h-10 rounded-full border-2 border-t-cardBg animate-spin"/>
-      </div>}
+    {mutation.isLoading && <LoadingLayout />}
     <section className="h-[650px] flex flex-col md:justify-around gap-y-4 pt-4">
-      <ImageForm userId={currentPersonalInfo.id} 
-          selectedImgUrl={selectedImgUrl} 
-            setSelectedImgUrl={setSelectedImgUrl}
+      <ImageForm userId={currentPersonalInfo.id}  selectedImgUrl={selectedImgUrl}  setSelectedImgUrl={setSelectedImgUrl}
           />  
       <form className="h-[60%] flex flex-col justify-between" onSubmit={handleSubmit(onSubmit)}>
         <div className="bg-cardBg rounded-xl px-5 mx-5 py-3 flex flex-col gap-y-5 md:gap-y-8 md:py-6 text-secondaryColor shadow-sm">
@@ -87,7 +84,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
         </div>
         <div className="w-full border-t pt-4 md:pt-8 border-t-gray-300 px-8 flex md:justify-end justify-center">
           <button
-            className="w-full md:w-fit py-2 px-8 bg-btnBg rounded-lg text-white font-medium````"
+            className="w-full md:w-fit py-2 px-8 bg-btnBg rounded-lg text-white font-medium hover:opacity-80"
             type="submit">
             Save
           </button>

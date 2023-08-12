@@ -1,7 +1,7 @@
 import { ZodType, z } from "zod";
 import { UpsetProfileData, SocialLinksData } from "./types";
 
-const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/wbp"];
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 const MAX_FILE_SIZE = 1024 * 1024 
 
 
@@ -26,7 +26,7 @@ export const UpsertProfileFormData: ZodType<UpsetProfileData> = z.object({
 
 export const ImageSchema = z.object({
     image: z.instanceof(File)
-    .refine(file => ACCEPTED_IMAGE_TYPES.includes(file.type), "Not Support Image Type!")
+    .refine(file => ACCEPTED_IMAGE_TYPES.includes(file.type), "Not Supported Image Type!")
     .refine(file => file.size <= MAX_FILE_SIZE, "Exceeds Maximum Size!")})
 
 export type ImageSchemaType = z.infer<typeof ImageSchema>

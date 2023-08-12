@@ -14,7 +14,7 @@ const EditPersonalInfo = () => {
         Add you details to create a personal touch to your profile.
       </Heading>
       {
-        status === "loading" ? <SkeletonInfoForm /> : status === "success" && personalInfo ? <PersonalInfoForm currentPersonalInfo={personalInfo} /> : <span>Error</span>
+        status === "loading" ? <SkeletonInfoForm /> : status === "success" && personalInfo ? <PersonalInfoForm currentPersonalInfo={personalInfo} /> : <span>Ahh Error in Loading Data!</span>
       }
     </>
   );
