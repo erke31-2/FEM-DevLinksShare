@@ -8,7 +8,8 @@ import EditPersonalInfo from "./pages/EditPersonalInfo";
 import EditLinks from "./pages/EditLinks";
 
 import Login from "./pages/Login";
-
+import Register from "./pages/Register";
+import GuestLayout from "./layouts/GuestLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,9 +40,23 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
+    path: "/guest",
+    element: <GuestLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="login" />
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />
+      }
+    ]
+  }
 ]);
 
 const App = () => {

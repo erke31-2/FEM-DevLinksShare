@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.active{
+    @apply bg-navBg text-btnBg;
+}
+
+.floatInput:focus ~ .floatLabel,
+input:not(:placeholder-shown) ~ label {
+  @apply transform;
+  @apply text-sm;
+  @apply -translate-y-7;
+  @apply text-primaryColor;
+  @apply -left-1;
+}
+
+/* .floatInput:focus ~ .floatLabel {
+ 
+} */

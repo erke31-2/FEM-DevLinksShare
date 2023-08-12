@@ -9,7 +9,7 @@ const AuthLayout = () => {
   return session?.user ? (
     <Outlet context={session.user} />
   ) : (
-    <Navigate to="/login" />
+    <Navigate to="/guest" />
   );
 };
 export default AuthLayout;

@@ -1,5 +1,28 @@
 import { Provider } from "@supabase/supabase-js";
 import supabase from "../../supabase/supabase";
+import { SignInType, SignUpType } from "../../types/schema";
+
+
+const signUpWithEmail = async (formData: SignUpType) => {
+  const {error} = await supabase.auth.signUp({
+    email: formData.email,
+    password: formData.password,
+  });
+  if(error){
+    throw new Error(error.message)
+  }
+}
+
+const logInWithPassword = async (formData: SignInType) => {
+  const {error} = await supabase.auth.signInWithPassword({
+    email: formData.email,
+    password: formData.password
+  })
+  if(error){
+    console.log(error.message);
+    
+  }
+}
 
 
 const logInWithProvider = async (provider: Provider) => {
@@ -25,6 +48,8 @@ const logOut = async () => {
 const useAuth = () => {
   
   return {
+    signUpWithEmail,
+    logInWithPassword,
     logInWithProvider,
     logOut,
   };

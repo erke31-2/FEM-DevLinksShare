@@ -1,9 +1,13 @@
 import { ZodType, z } from "zod";
 import { UpsetProfileData, SocialLinksData } from "./types";
 
-const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
-const MAX_FILE_SIZE = 1024 * 1024 
-
+const ACCEPTED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+];
+const MAX_FILE_SIZE = 1024 * 1024;
 
 export const UpsertProfileFormData: ZodType<UpsetProfileData> = z.object({
   id: z.string().nonempty(),
@@ -23,13 +27,17 @@ export const UpsertProfileFormData: ZodType<UpsetProfileData> = z.object({
   updated_at: z.string().optional(),
 });
 
-
 export const ImageSchema = z.object({
-    image: z.instanceof(File)
-    .refine(file => ACCEPTED_IMAGE_TYPES.includes(file.type), "Not Supported Image Type!")
-    .refine(file => file.size <= MAX_FILE_SIZE, "Exceeds Maximum Size!")})
+  image: z
+    .instanceof(File)
+    .refine(
+      (file) => ACCEPTED_IMAGE_TYPES.includes(file.type),
+      "Not Supported Image Type!"
+    )
+    .refine((file) => file.size <= MAX_FILE_SIZE, "Exceeds Maximum Size!"),
+});
 
-export type ImageSchemaType = z.infer<typeof ImageSchema>
+export type ImageSchemaType = z.infer<typeof ImageSchema>;
 
 export const UpsertSocialLinkFormData: ZodType<SocialLinksData> = z.object({
   id: z.string().nonempty(),
@@ -39,3 +47,43 @@ export const UpsertSocialLinkFormData: ZodType<SocialLinksData> = z.object({
   description: z.string(),
   created_at: z.string(),
 });
+
+export const SignUpSchema = z
+  .object({
+    email: z
+      .string()
+      .nonempty("Enter Your Email")
+      .email("Invalid Email Address"),
+    password: z
+      .string()
+      .nonempty("Password is required")
+      .min(8, { message: "Password must contain at least 8 characters" })
+      .refine((value) => /[A-Za-z]/.test(value), {
+        message: "Password must contain at least one letter",
+      })
+      .refine((value) => /\d/.test(value), {
+        message: "Password must contain at least one number",
+      }),
+    password_confirmation: z
+      .string()
+      .nonempty("Password Confirmation is required"),
+  })
+  .refine((data) => data.password === data.password_confirmation, {
+    message: "Passwords do not match",
+    path: ["password_confirmation"],
+  });
+
+
+export type SignUpType = z.infer<typeof SignUpSchema>
+
+
+
+export const SignInSchema = z.object({
+  email: z
+      .string()
+      .nonempty("Enter Your Email")
+      .email("Invalid Email Address"),
+  password: z.string().nonempty("Enter Your Password") 
+})
+
+export type SignInType = z.infer<typeof SignInSchema>

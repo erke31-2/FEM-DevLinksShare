@@ -10,11 +10,7 @@ const NavBar = () => {
           <li>
             <NavLink
               to={"links"}
-              className={({ isActive }) =>
-                isActive
-                  ? "text-btnBg gap-x-1 px-6 py-3 bg-navBg rounded-md flex items-center"
-                  : "text-secondaryColor flex items-center gap-x-1 px-6 py-3 rounded-md"
-              }
+              className="text-secondaryColor flex items-center gap-x-1 px-6 py-3 rounded-md"  
             >
               <FaLink />
               <span className="font-medium hidden md:block">Links</span>
@@ -23,11 +19,7 @@ const NavBar = () => {
           <li>
             <NavLink
               to={"personalInfo"}
-              className={({ isActive }) =>
-                isActive
-                  ? "text-btnBg gap-x-1 px-6 py-3 bg-navBg rounded-md flex items-center"
-                  : "text-secondaryColor flex items-center gap-x-1 px-6 py-3 rounded-md"
-              }
+              className="text-secondaryColor flex items-center gap-x-1 px-6 py-3 rounded-md"
             >
               <FaUserCircle />
               <span className="font-medium hidden md:block">
@@ -39,9 +31,10 @@ const NavBar = () => {
       </nav>
       <Link
         to={"/"}
-        className="text-btnBg border rounded-md flex justify-center items-center py-[10px] px-4 border-btnBg"
+        className="text-btnBg border rounded-md flex justify-center items-center py-[10px] px-4 border-btnBg gap-x-1"
       >
         <FaRegEye />
+        <span className="hidden md:block font-medium">Preview</span>
       </Link> 
     </header>
   );
