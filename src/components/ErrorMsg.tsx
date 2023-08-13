@@ -5,7 +5,7 @@ interface ErrorMsgProps {
 
 const ErrorMsg: React.FC<ErrorMsgProps> = ({ children }) => {
   return (
-    <p className="absolute -bottom-[18px] left-1 text-red-600 text-sm font-semibold flex items-center gap-x-1">
+    <p className="absolute -bottom-[20px] left-1 text-red-600 text-sm font-semibold flex items-center gap-x-1">
       <FiAlertTriangle size={13} />
       <span>{children}</span>
     </p>

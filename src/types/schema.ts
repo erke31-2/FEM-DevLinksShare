@@ -57,16 +57,16 @@ export const SignUpSchema = z
     password: z
       .string()
       .nonempty("Password is required")
-      .min(8, { message: "Password must contain at least 8 characters" })
+      .min(8, { message: "Weak" })
       .refine((value) => /[A-Za-z]/.test(value), {
-        message: "Password must contain at least one letter",
+        message: "At least one letter",
       })
       .refine((value) => /\d/.test(value), {
-        message: "Password must contain at least one number",
+        message: "At least one number",
       }),
     password_confirmation: z
       .string()
-      .nonempty("Password Confirmation is required"),
+      .nonempty("Confirm Your Password!"),
   })
   .refine((data) => data.password === data.password_confirmation, {
     message: "Passwords do not match",

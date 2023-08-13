@@ -19,8 +19,7 @@ const logInWithPassword = async (formData: SignInType) => {
     password: formData.password
   })
   if(error){
-    console.log(error.message);
-    
+    throw new Error(error.message)  
   }
 }
 

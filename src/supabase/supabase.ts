@@ -12,5 +12,3 @@ export default supabase;
 export const getImageUrl = (filePath: string) => {
     return `${supabaseUrl}/storage/v1/object/public/avatars/${filePath}`
 }
-
-
