@@ -8,7 +8,7 @@ import { UpsertSocialLinkFormData } from "../../types/schema";
 import { useOutletContext } from "react-router-dom";
 import { User } from "@supabase/supabase-js";
 import useSocialLinkMutate from "../../hooks/mutations/useSocialLinkMutate";
-import LoadingLayout from "../LoadingLayout";
+import LoadingLayout from "../OverlayLoading";
 
 interface LinkInputProps {
   defaultFormData: SocialLinksData;

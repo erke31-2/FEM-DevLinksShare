@@ -10,6 +10,7 @@ import EditLinks from "./pages/EditLinks";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import GuestLayout from "./layouts/GuestLayout";
+import MyLinksShareCard from "./components/share/MyLinksShareCard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         element: <Register />
       }
     ]
+  },
+  {
+    path: "users/:id",
+    element: <MyLinksShareCard />
   }
 ]);
 

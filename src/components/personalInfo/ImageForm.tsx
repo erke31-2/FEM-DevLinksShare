@@ -1,5 +1,5 @@
 import { FaImage } from "react-icons/fa";
-import useUploadImageMutate from "../../hooks/queries/useUploadImageMutate";
+import useUploadImageMutate from "../../hooks/mutations/useUploadImageMutate";
 import { getImageUrl } from "../../supabase/supabase";
 import { useRef, useState } from "react";
 import { ImageSchema, ImageSchemaType } from "../../types/schema";
@@ -46,12 +46,15 @@ const ImageForm: React.FC<ImageFormProps> = ({ userId, setSelectedImgUrl, select
         {errors.image && <small className="text-red-600">{errors.image.message}</small>}
       </div>
       <div className="md:w-[70%] md:flex md:items-center md:gap-x-3">
-        
         <div
           className="relative px-2 py-4 flex flex-col items-center justify-center gap-2  border border-dashed border-secondaryColor hover:border-btnBg rounded-md text-secondaryColor hover:text-btnBg cursor-pointer w-[140px] h-[140px]"
           onClick={handleImageInput}
         >
-          <div className="absolute w-full h-full z-20 flex flex-col justify-center items-center opacity-0 hover:opacity-70 hover:bg-gray-300 rounded-md">
+         {!selectedImgUrl && !uploadImage &&  <div className="absolute w-full h-full z-20 flex flex-col justify-center items-center  rounded-md">
+            <FaImage size={23} />
+            <span>Choose Image</span>
+          </div>}
+          <div className="absolute w-full h-full z-20 flex flex-col justify-center items-center  rounded-md opacity-0 hover:opacity-70 hover:bg-gray-300">
             <FaImage size={23} />
             <span>Choose Image</span>
           </div>

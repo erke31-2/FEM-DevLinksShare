@@ -65,9 +65,13 @@ const EmailRegister = () => {
         </label>
         {errors.password_confirmation && <ErrorMsg>{errors.password_confirmation.message}</ErrorMsg>}
       </div>
-      <button className="text-white py-2 bg-btnBg rounded-md font-medium" type="submit" disabled={isLoading}>
-        Sign Up
-      </button>
+      <button
+          className="text-white py-2 bg-btnBg rounded-md font-medium flex justify-center items-center h-10"
+          type="submit"
+          disabled={isLoading}
+        >
+          {isLoading ? <div className="w-5 h-5 rounded-full animate-spin border-2 border-slate-400"/> : "Sign Up"} 
+        </button>
     </form>
   );
 };

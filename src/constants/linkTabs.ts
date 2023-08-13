@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
 import {FaDiscord, FaFacebook, FaFreeCodeCamp, FaGithub, FaInstagram, FaLinkedin, FaReddit, FaSnapchat, FaSpotify, FaTiktok, FaTwitch, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa"
+import ThreadsIcon from "../components/ThreadsIcon";
 
 interface LinkTabs{
     name: string;
@@ -77,7 +78,12 @@ export const linkTabs: LinkTabs[] = [
         name: "FreeCodeCamp",
         icon: FaFreeCodeCamp,
         colorClass: "bg-black"
-    }
+    },
+    {
+        name: "Threads",
+        icon: ThreadsIcon,
+        colorClass: "bg-slate-900/70"
+    } 
 ]
 
 

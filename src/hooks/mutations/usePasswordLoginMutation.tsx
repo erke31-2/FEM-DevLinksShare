@@ -1,16 +1,17 @@
 import { useMutation } from "@tanstack/react-query"
 import useAuth from "../functions/useAuth"
 import { SignInType } from "../../types/schema";
+import { toast } from "react-toastify";
 
 const usePasswordLoginMutation = () => {
     const {logInWithPassword} = useAuth();
-    const mutation = useMutation<void, Error, SignInType>({
+    const {mutate, isLoading, error: LoginError} = useMutation<void, Error, SignInType>({
         mutationKey: ["logInWithPassword"],
         mutationFn: (formData) => logInWithPassword(formData),
-        onSuccess: () => console.log("Success")
+        onSuccess: () => toast.success("Welcome!", {position: "top-center"}),
     })
   return {
-    mutation
+    mutate, isLoading, LoginError
   }
 }
 export default usePasswordLoginMutation

@@ -1,16 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { SignInSchema, SignInType } from "../../types/schema";
 import usePasswordLoginMutation from "../../hooks/mutations/usePasswordLoginMutation";
 import ErrorMsg from "../ErrorMsg";
 
 const EmailLogin = () => {
-  const { mutation } = usePasswordLoginMutation();
+  const { mutate, isLoading, LoginError } = usePasswordLoginMutation();
   const { handleSubmit, register, formState: { errors } } = useForm<SignInType>({ resolver: zodResolver(SignInSchema) });
-
   const onSubmit: SubmitHandler<SignInType> = (formData) => {
-    mutation.mutate(formData);
+    mutate(formData);
   };
 
   return (
@@ -18,7 +17,7 @@ const EmailLogin = () => {
       className="w-[75%] p-6 flex flex-col gap-y-5 relative"
       onSubmit={handleSubmit(onSubmit)}
     >
-      {mutation.error && <span className="text-center bg-red-500 text-white py-1 rounded-sm absolute -top-7 left-6 right-6">{mutation.error.message} !</span>}
+      {LoginError && <span className="text-center bg-red-500 text-white py-1 rounded-sm absolute -top-7 left-6 right-6">{LoginError.message} !</span>}
       <div className="relative z-0 w-full mb-8">
         <input
           type="email"
@@ -53,15 +52,15 @@ const EmailLogin = () => {
         {errors.password && <ErrorMsg>{errors.password.message}</ErrorMsg>}
       </div>
       <div className="flex justify-end mt-5 flex-col gap-y-4">
-        <Link to="/guest/register" className="text-sm underline text-slate-700 text-right">
+        {/* <Link to="/guest/register" className="text-sm underline text-slate-700 text-right">
           Forgot Password?
-        </Link>
+        </Link> */}
         <button
-          className="text-white py-2 bg-btnBg rounded-md font-medium"
+          className="text-white py-2 bg-btnBg rounded-md font-medium flex justify-center items-center h-10"
           type="submit"
-          disabled={mutation.isLoading}
+          disabled={isLoading}
         >
-          Log in
+          {isLoading ? <div className="w-5 h-5 rounded-full animate-spin border-2 border-slate-400"/> : "Log In"} 
         </button>
       </div>
     </form>

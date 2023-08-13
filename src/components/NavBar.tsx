@@ -4,13 +4,15 @@ import { FaLink, FaUserCircle, FaRegEye } from "react-icons/fa";
 const NavBar = () => {
   return (
     <header className="w-[95%] bg-white mx-auto shadow-sm rounded-lg flex justify-between px-5 py-2 items-center">
-      <h1 className="text-lg font-bold">DevLinks</h1>
+      <a href="/edit">
+        <h1 className="text-lg font-bold">DevLinks</h1>
+      </a>
       <nav>
         <ul className="flex items-center">
           <li>
             <NavLink
               to={"links"}
-              className="text-secondaryColor flex items-center gap-x-1 px-6 py-3 rounded-md"  
+              className="text-secondaryColor flex items-center gap-x-1 px-6 py-3 rounded-md"
             >
               <FaLink />
               <span className="font-medium hidden md:block">Links</span>
@@ -35,7 +37,7 @@ const NavBar = () => {
       >
         <FaRegEye />
         <span className="hidden md:block font-medium">Preview</span>
-      </Link> 
+      </Link>
     </header>
   );
 };

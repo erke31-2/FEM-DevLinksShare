@@ -28,8 +28,8 @@ const logInWithProvider = async (provider: Provider) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: "http://localhost:3000/edit",
-    },
+      redirectTo: "http://localhost:3000/edit"
+    } 
   });
   if (error) {
     throw new Error(error.message);

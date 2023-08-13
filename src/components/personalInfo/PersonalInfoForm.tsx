@@ -6,7 +6,7 @@ import usePersonalInfoMutate from "../../hooks/mutations/usePersonalInfoMutate";
 import ErrorMsg from "../ErrorMsg";
 import ImageForm from "./ImageForm";
 import { useState } from "react";
-import LoadingLayout from "../LoadingLayout";
+import OverlayLoading from "../OverlayLoading";
 
 interface PersonalInfoFormProps {
   currentPersonalInfo: UpsetProfileData;
@@ -30,7 +30,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
   
   return (
     <>
-    {mutation.isLoading && <LoadingLayout />}
+    {mutation.isLoading && <OverlayLoading />}
     <section className="h-[650px] flex flex-col md:justify-around gap-y-4 pt-4">
       <ImageForm userId={currentPersonalInfo.id}  selectedImgUrl={selectedImgUrl}  setSelectedImgUrl={setSelectedImgUrl}
           />  

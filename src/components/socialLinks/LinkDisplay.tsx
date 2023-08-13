@@ -3,7 +3,7 @@ import { linkTabs } from "../../constants/linkTabs";
 import useSocialLinkDeleteMutate from "../../hooks/mutations/useSocialLinkDeleteMutate";
 import { SocialLinksData } from "../../types/types";
 import { FaTrashAlt, FaLink } from "react-icons/fa";
-import LoadingLayout from "../LoadingLayout";
+import OverlayLoading from "../OverlayLoading";
 interface LinkDisplayProps {
   socialLink: SocialLinksData;
   serial: number;
@@ -27,7 +27,7 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
 
   return (
     <>
-    {mutation.isLoading && <LoadingLayout />}
+    {mutation.isLoading && <OverlayLoading />}
     <article className="w-full bg-cardBg px-4 py-3 rounded-xl text-secondaryColor flex flex-col gap-y-3">
       <div className="flex justify-between items-center px-1">
         <h3 className="font-semibold">= Link #{serial}</h3>
