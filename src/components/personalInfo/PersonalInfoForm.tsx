@@ -37,32 +37,32 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
       <form className="h-[60%] flex flex-col justify-between" onSubmit={handleSubmit(onSubmit)}>
         <div className="bg-cardBg rounded-xl px-5 mx-5 py-3 flex flex-col gap-y-5 md:gap-y-8 md:py-6 text-secondaryColor shadow-sm">
           <div className="w-full flex flex-col md:flex-row md:items-center md:gap-x-3 md:justify-between relative">
-            <label htmlFor="firstName">First name*</label>
+            <label htmlFor="userName">Username*</label>
             <div className="md:w-[70%] relative">
               <input
                 type="text"
-                id="firstName"
-                className={`${ errors.first_name ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
-                placeholder="eg. Yang"
-                {...register("first_name")}
+                id="userName"
+                className={`${ errors.user_name ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
+                placeholder="eg. yang@03"
+                {...register("user_name")}
               />
-              {errors.first_name && (
-                <ErrorMsg>{errors.first_name.message}</ErrorMsg>
+              {errors.user_name && (
+                <ErrorMsg>{errors.user_name.message}</ErrorMsg>
               )}
             </div>
           </div>
           <div className="w-full flex flex-col md:flex-row md:items-center md:gap-x-3 md:justify-between relative">
-            <label htmlFor="lastName">Last name*</label>
+            <label htmlFor="fullName">FullName*</label>
             <div className="md:w-[70%] relative">
               <input
                 type="text"
-                id="lastName"
-                className={`${ errors.last_name ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
-                placeholder="eg. Wenli"
-                {...register("last_name")}
+                id="fullName"
+                className={`${ errors.full_name ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
+                placeholder="eg. Yang Wenli"
+                {...register("full_name")}
               />
-              {errors.last_name && (
-                <ErrorMsg>{errors.last_name.message}</ErrorMsg>
+              {errors.full_name && (
+                <ErrorMsg>{errors.full_name.message}</ErrorMsg>
               )}
             </div>
           </div>

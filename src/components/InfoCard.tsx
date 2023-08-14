@@ -6,7 +6,7 @@ interface InfoCardProps {
   socialLinks?: SocialLinksData[];
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ personalInfo, socialLinks }) => {
+const InfoCard: React.FC<InfoCardProps> = ({ personalInfo, socialLinks }) => {  
   const defaultProfile = personalInfo?.avatar_url || "/images/profile.png";
   return (
     <>
@@ -20,7 +20,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ personalInfo, socialLinks }) => {
             />
           </div>
           <h2 className="font-semibold text-xl text-primaryColor">
-            {personalInfo.first_name} {personalInfo.last_name}
+            {personalInfo.full_name}
           </h2>
           <p className="text-secondaryColor">{personalInfo.email_address}</p>
         </div>
@@ -31,7 +31,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ personalInfo, socialLinks }) => {
           <div className="w-3/4 h-5 rounded-md bg-slate-200" />
         </div>
       )}
-      {socialLinks ? (
+      {socialLinks && socialLinks.length > 0 ? (
         <ul className="flex flex-col gap-y-2">
           {socialLinks.map((link) => (
             <LinkTab link={link} key={link.id}/>

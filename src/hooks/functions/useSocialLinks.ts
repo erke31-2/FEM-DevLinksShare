@@ -5,7 +5,8 @@ const getSocialLinks = async (userId: string): Promise<SocialLinksData[]> => {
   const { data, error } = await supabase
     .from("social_links")
     .select()
-    .eq("user_id", userId);
+    .eq("user_id", userId)
+    .order("created_at", {ascending: true});
   if (error) {
     throw new Error(error.message);
   }

@@ -11,14 +11,14 @@ const MAX_FILE_SIZE = 1024 * 1024;
 
 export const UpsertProfileFormData: ZodType<UpsetProfileData> = z.object({
   id: z.string().nonempty(),
-  first_name: z
+  user_name: z
     .string()
-    .nonempty("Please Enter Your First Name!")
-    .min(3, "First Name should be at least 3 characters"),
-  last_name: z
+    .nonempty("Please Enter Username!")
+    .min(3, "Username should be at least 3 characters"),
+  full_name: z
     .string()
-    .nonempty("Please Enter Your Last Name!")
-    .min(3, "Last Name should be at le"),
+    .nonempty("Please Enter Your Name!")
+    .min(3, "Name should be at least 3 characters"),
   email_address: z
     .string()
     .nonempty("Please Enter Your Email Address!")

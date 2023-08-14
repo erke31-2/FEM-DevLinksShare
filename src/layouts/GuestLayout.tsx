@@ -10,7 +10,7 @@ const GuestLayout = () => {
   return session?.user ? (
     <Navigate to="/edit" />
   ) : (
-    <main className="w-full h-screen grid grid-cols-1 md:grid-cols-2">
+    <main className="w-full h-screen grid grid-cols-1 md:grid-cols-2 justify-center items-center">
       <section className="w-full h-full hidden bg-cardBg md:flex md:flex-col md:justify-center md:items-center md:gap-y-3">
         <h1 className="text-lg font-bold text-primaryColor">
           Create Your Own and Share it with Friends!

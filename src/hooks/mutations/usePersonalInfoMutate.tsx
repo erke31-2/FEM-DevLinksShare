@@ -14,7 +14,7 @@ const usePersonalInfoMutate = (userId: string) => {
             toast.success("Saved Changes Successfully!") 
         },
         onError: (error) => {
-            toast.error(error.message)    
+            toast.error(error.message, {position: "top-center"})    
         }
     })
   return {

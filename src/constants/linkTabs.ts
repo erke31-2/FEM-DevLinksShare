@@ -1,6 +1,7 @@
 import { IconType } from "react-icons";
-import {FaDiscord, FaFacebook, FaFreeCodeCamp, FaGithub, FaInstagram, FaLinkedin, FaReddit, FaSnapchat, FaSpotify, FaTiktok, FaTwitch, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa"
-import ThreadsIcon from "../components/ThreadsIcon";
+import {FaDiscord, FaFacebook, FaFreeCodeCamp, FaGithub, FaInstagram, FaLinkedin, FaPinterestP, FaReddit, FaSkype, FaSnapchat, FaSpotify, FaTiktok, FaTwitch, FaWhatsapp, FaYoutube} from "react-icons/fa"
+import ThreadsIcon from "../components/icons/ThreadsIcon";
+import TwitterIcon from "../components/icons/TwitterIcon";
 
 interface LinkTabs{
     name: string;
@@ -22,7 +23,7 @@ export const linkTabs: LinkTabs[] = [
     {
         name: "Linkedin",
         icon: FaLinkedin,
-        colorClass: "bg-[#0A66C2]"
+        colorClass: "bg-[#0077B5]"
     },
     {
         name: "Discord",
@@ -41,8 +42,8 @@ export const linkTabs: LinkTabs[] = [
     },
     {
         name: "Twitter",
-        icon: FaTwitter,
-        colorClass: "bg-[#1DA1F2]"
+        icon: TwitterIcon,
+        colorClass: "bg-black"
     },
     {
         name: "TikTok",
@@ -83,7 +84,17 @@ export const linkTabs: LinkTabs[] = [
         name: "Threads",
         icon: ThreadsIcon,
         colorClass: "bg-slate-900/70"
-    } 
+    },
+    {
+        name: "Pinterest",
+        icon: FaPinterestP,
+        colorClass: "bg-[#BD081C]"
+    },
+    {
+        name: "Skype",
+        icon: FaSkype,
+        colorClass: "bg-blue-500"
+    }
 ]
 
 

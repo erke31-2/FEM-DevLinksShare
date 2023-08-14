@@ -22,7 +22,14 @@ const SocialLinksForm: React.FC<SocialLinksFormProps> = ({ socialLinks }) => {
   const [defaultFormData, setDefaultFormData] = useState<SocialLinksData[]>(socialLinks.length > 0 ? [] : [newForm]);
 
   const addNewForm = () => {
-    setDefaultFormData([newForm, ...defaultFormData]);
+    const updatedForm = [
+      {
+        ...newForm,
+        id: uuidv4()
+      },
+      ...defaultFormData
+    ]
+    setDefaultFormData(updatedForm);
   };
   
   const removeAddedForm = (id: string) => {
