@@ -1,6 +1,7 @@
 import { Provider } from "@supabase/supabase-js";
 import supabase from "../../supabase/supabase";
 import { SignInType, SignUpType } from "../../types/schema";
+import config from "../../config";
 
 
 const signUpWithEmail = async (formData: SignUpType) => {
@@ -28,7 +29,7 @@ const logInWithProvider = async (provider: Provider) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      redirectTo: "http://localhost:3000/edit"
+      redirectTo: `${config.baseUrl}/edit`
     } 
   });
   if (error) {
