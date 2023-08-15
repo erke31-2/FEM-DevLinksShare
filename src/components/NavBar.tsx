@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaLink, FaUserCircle, FaRegEye } from "react-icons/fa";
 
 const NavBar = () => {
+
   return (
     <header className="w-[95%] bg-white mx-auto shadow-sm rounded-lg flex justify-between px-5 py-2 items-center">
       <a href="/edit">

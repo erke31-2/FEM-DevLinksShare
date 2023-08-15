@@ -13,7 +13,9 @@ const getPersonalInfoById = async (userId: string): Promise<ProfileData> => {
   return data;
 };
 
-const getPersonalInfoByUserName = async ( username: string): Promise<ProfileData> => {
+const getPersonalInfoByUserName = async (
+  username: string
+): Promise<ProfileData> => {
   const { data, error } = await supabase
     .from("profiles")
     .select()
@@ -43,6 +45,15 @@ const uploadImage = async (file: File, userId: string) => {
   if (error) throw new Error(error.message);
   return data.path;
 };
+
+// const deleteUnusedImages = async () => {
+//   const { error: deleteError } = await supabase.storage
+//     .from("bucket_name")
+//     .remove(["folder/*"]);
+//   if(deleteError){
+//     throw new Error(deleteError.message)
+//   }
+// };
 
 const usePersonalInfo = () => {
   return {
