@@ -13,7 +13,7 @@ const useUploadImageMutate = () => {
       mutationKey: ["uploadImage"],
       mutationFn: ({file, userId}) => uploadImage(file, userId),
       onSuccess: () => {
-        toast.success("Image Uploaded, Click Save to save changes!", {position: "top-center"})
+        toast.success("Click Save to save changes!", {position: "top-center"})
       },
       onError: (error) => toast.error(error.message, {position: "top-center"})
     })

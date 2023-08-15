@@ -7,8 +7,7 @@ const useOAuthLoginMutation = () => {
     const {logInWithProvider} = useAuth();
     const mutation = useMutation<void, Error, Provider>({
         mutationKey: ["logInWithProvider"],
-        mutationFn: (provider) => logInWithProvider(provider),
-        onSuccess: () => toast.success("Welcome!", {position: "top-center"}),
+        mutationFn: (provider) => logInWithProvider(provider), 
         onError: (error) => toast.error(error.message, {position: "top-center"}) 
     })
   return {
