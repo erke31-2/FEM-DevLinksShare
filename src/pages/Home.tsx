@@ -12,7 +12,7 @@ const Home = () => {
   const { personalInfo } = usePersonalInfoQuery(user.id);
   const { socialLinks } = useSocialLinksQuery(user.id);
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(`${config.baseUrl}/users/${personalInfo?.user_name}`);
+    await navigator.clipboard.writeText(`${config.baseUrl}/share/${personalInfo?.user_name}`);
     setIsCopied(true);
   };
   return (

@@ -59,7 +59,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "users/:username",
+    path: "share/:username",
     element: <MyLinksShareCard />
   }
 ]);
