@@ -60,7 +60,7 @@ const LinkInput: React.FC<LinkInputProps> = ({ defaultFormData, removeAddedForm,
       </div>
       <div>
         <div className="text-sm font-medium flex items-center justify-between px-1">
-          <label htmlFor="platform">Platform</label>
+          <label htmlFor="platform">Platform*</label>
           {errors.name && (
             <span className="text-red-600">{errors.name.message}</span>
           )}
@@ -92,7 +92,7 @@ const LinkInput: React.FC<LinkInputProps> = ({ defaultFormData, removeAddedForm,
       <div>
         <div className="font-medium text-sm flex items-center justify-between px-1">
           <label htmlFor="url" className="text-sm font-medium">
-            Link
+            Link*
           </label>
           {errors.url && <span className="text-red-600">{errors.url.message}</span>}
         </div>

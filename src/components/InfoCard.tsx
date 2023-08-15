@@ -32,7 +32,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ personalInfo, socialLinks }) => {
         </div>
       )}
       {socialLinks && socialLinks.length > 0 ? (
-        <ul className="flex flex-col gap-y-2">
+        <ul className="flex flex-col gap-y-2 h-[280px] overflow-auto">
           {socialLinks.map((link) => (
             <LinkTab link={link} key={link.id}/>
           ))}
