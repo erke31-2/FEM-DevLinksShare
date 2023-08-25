@@ -1,6 +1,6 @@
-# Frontend Mentor - IP address tracker solution
+# Frontend Mentor - Links Sharing App
 
-This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/linksharing-app-Fbt7yweGsT). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is an inspiration of Frontend Mentor Links Sharing Web App [Links Sharing Web App challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/linksharing-app-Fbt7yweGsT). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution](https://github.com/erke31-2/FEM-DevLinksShare)
+- [Live Demo](https://devlinksshare.vercel.app/)
 
 ## My process
 
@@ -45,10 +45,12 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [TanstackQuery]
-- [Typescript]
-- [ReactRouteDom]
+- [React](https://reactjs.org/)
+- [TanstackQuery](https://tanstack.com/query/latest/)
+- [Typescript](https://www.typescriptlang.org/)
+- [ReactRouteDom](https://reactrouter.com/en/main)
+- [Supabase](https://supabase.com/)
+- [Tailwind](https://tailwindcss.com/)
 
 
 ## Author
