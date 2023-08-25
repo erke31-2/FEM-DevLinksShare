@@ -39,9 +39,9 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
         </button>
       </div>
       <div>
-        <label  className="text-sm font-medium">
+        <h4  className="text-sm font-medium">
           Platform
-        </label>
+        </h4>
         <div className="flex items-center border rounded-md px-3 py-[11px] gap-x-3 border-inputBorder overflow-x-auto">
           <Icon size={23} />
           <p className="cursor-pointer w-full outline-none bg-cardBg" >
@@ -50,9 +50,9 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
         </div>
       </div>
       <div>
-        <label  className="text-sm font-medium">
+        <h4  className="text-sm font-medium">
           Link
-        </label>
+        </h4>
         <div className="flex items-center border rounded-md px-3 py-[11px] gap-x-3 border-inputBorder overflow-x-auto">
           <button>
             <FaLink />
@@ -64,9 +64,9 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
       </div>
       {socialLink.description && (
         <div>
-          <label  className="text-sm font-medium">
+          <h4  className="text-sm font-medium">
             Description
-          </label>
+          </h4>
           <div className="flex items-center border rounded-md px-3 py-[11px] border-inputBorder overflow-auto">
             <p className="cursor-pointer w-full outline-none bg-cardBg" >
               {socialLink.description}
