@@ -44,6 +44,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
                 id="userName"
                 className={`${ errors.user_name ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
                 placeholder="eg. yang@03"
+                autoComplete="on"
                 {...register("user_name")}
               />
               {errors.user_name && (
@@ -74,6 +75,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ currentPersonalInfo
                 id="email"
                 className={`${ errors.email_address ? "border-red-600" : "border-inputBorder" } px-4 py-2 rounded-md border outline-none focus:border-btnBg  focus:drop-shadow-inputShadow w-full`}
                 placeholder="eg. yangwenli@gmail.com"
+                autoComplete="on"
                 {...register("email_address")}
               />
               {errors.email_address && (

@@ -21,6 +21,7 @@ const EmailRegister = () => {
           placeholder=" "
           className="floatInput pt-2 pb-1 px-1 block w-full bg-transparent border-b-2 border-gray-400 outline-none focus:border-primaryColor"
           id="email"
+          autoComplete="on"
           {...register("email")}
         />
         <label

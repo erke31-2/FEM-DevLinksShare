@@ -39,42 +39,36 @@ const LinkDisplay: React.FC<LinkDisplayProps> = ({ socialLink, serial }) => {
         </button>
       </div>
       <div>
-        <label htmlFor="platform" className="text-sm font-medium">
+        <label  className="text-sm font-medium">
           Platform
         </label>
         <div className="flex items-center border rounded-md px-3 py-[11px] gap-x-3 border-inputBorder overflow-x-auto">
           <Icon size={23} />
-          <p
-            id="platform"
-            className="cursor-pointer w-full outline-none bg-cardBg"
-          >
+          <p className="cursor-pointer w-full outline-none bg-cardBg" >
             {socialLink.name}
           </p>
         </div>
       </div>
       <div>
-        <label htmlFor="url" className="text-sm font-medium">
+        <label  className="text-sm font-medium">
           Link
         </label>
         <div className="flex items-center border rounded-md px-3 py-[11px] gap-x-3 border-inputBorder overflow-x-auto">
           <button>
             <FaLink />
           </button>
-          <p id="url" className="cursor-pointer w-full outline-none bg-cardBg">
+          <p className="cursor-pointer w-full outline-none bg-cardBg">
             {socialLink.url}
           </p>
         </div>
       </div>
       {socialLink.description && (
         <div>
-          <label htmlFor="description" className="text-sm font-medium">
+          <label  className="text-sm font-medium">
             Description
           </label>
           <div className="flex items-center border rounded-md px-3 py-[11px] border-inputBorder overflow-auto">
-            <p
-              id="description"
-              className="cursor-pointer w-full outline-none bg-cardBg"
-            >
+            <p className="cursor-pointer w-full outline-none bg-cardBg" >
               {socialLink.description}
             </p>
           </div>
